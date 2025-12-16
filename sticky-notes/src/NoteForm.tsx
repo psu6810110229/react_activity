@@ -5,6 +5,7 @@ interface NoteFormProps {
 }
 
 export default function NoteForm({ onAdd }: NoteFormProps) {
+<<<<<<< HEAD
   const [text, setText] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,6 +23,21 @@ export default function NoteForm({ onAdd }: NoteFormProps) {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Write a note..."
+=======
+  const [text, setText] = useState("");
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onAdd(text);
+        setText("");
+      }}
+    >
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+>>>>>>> feature/VERSION2.0
       />
       <button type="submit">Add</button>
     </form>
